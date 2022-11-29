@@ -4,6 +4,11 @@
 -- lvim.builtin.which_key.mappings["/"] = { '<cmd>lua require("Comment.api").toggle.linewise.current()<CR>', "Comment" }
 -- lvim.builtin.which_key.mappings["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" }
 
+lvim.builtin.which_key.mappings["a"] = { "ggVG", "Select All" }
+lvim.builtin.which_key.mappings["j"] = { "<Plug>(leap-forward-to)", "Jump Forward To" }
+lvim.builtin.which_key.mappings["J"] = { "<Plug>(leap-backward-to)", "Jump Backward To" }
+lvim.builtin.which_key.mappings["k"] = { "<Plug>(leap-forward-till)", "Jump Forward Till" }
+lvim.builtin.which_key.mappings["K"] = { "<Plug>(leap-backward-till)", "Jump Backward Till" }
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 lvim.builtin.which_key.mappings["Q"] = { "<cmd>qa<CR>", "Quit LunarVim" }
 lvim.builtin.which_key.mappings["v"] = { "<cmd>vsplit<cr>", "vsplit" }

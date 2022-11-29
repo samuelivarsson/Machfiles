@@ -13,11 +13,13 @@ require("scrollbar").setup({
     },
     marks = {
         Cursor = {
-            text = "",
+            -- text = "",
             -- text = "•",
+            text = nil,
             -- text = "─",
             priority = 0,
             color = "#7f7f7f",
+            -- color = nil,
             cterm = nil,
             -- highlight = "Normal",
         },
@@ -112,7 +114,7 @@ require("scrollbar").setup({
         },
     },
     handlers = {
-        cursor = true,
+        cursor = false,
         diagnostic = false,
         gitsigns = false, -- Requires gitsigns
         handle = true,
