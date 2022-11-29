@@ -1,0 +1,4 @@
+.DS_Store
+lvim/.config/lvim/plugin/packer_compiled.lua
+nvim/.config/nvim/node_modules
+nvim/.config/nvim/yarn.lock
