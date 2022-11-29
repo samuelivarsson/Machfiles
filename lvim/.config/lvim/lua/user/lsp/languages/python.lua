@@ -28,6 +28,16 @@ require('dap-python').resolve_python = function()
     return '/usr/bin/python3'
 end
 
+table.insert(require('dap').configurations.python, {
+    type = 'python',
+    request = 'launch',
+    name = 'Launch with args',
+    program = '${file}',
+    console = 'integratedTerminal',
+    args = { "inception-annotation-storage.plantuml" },
+    -- ... more options, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings
+})
+
 vim.api.nvim_create_autocmd({ "FileType" }, {
     pattern = { "python" },
     callback = function()
