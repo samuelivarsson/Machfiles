@@ -2,3 +2,4 @@
 lvim/.config/lvim/plugin/packer_compiled.lua
 nvim/.config/nvim/node_modules
 nvim/.config/nvim/yarn.lock
+nvim/.config/nvim/plugin/packer_compiled.lua
