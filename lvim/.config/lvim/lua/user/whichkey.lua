@@ -120,6 +120,12 @@ lvim.builtin.which_key.mappings["l"] = {
     t = { '<cmd>lua require("user.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
     u = { "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet" },
 }
+lvim.builtin.which_key.mappings["n"] = {
+    name = "Notifications",
+    h = {
+        "<cmd>lua require('telescope').extensions.notify.notify()<cr>", "Show History"
+    }
+}
 lvim.builtin.which_key.mappings["t"] = {
     name = "Tab",
     t = {

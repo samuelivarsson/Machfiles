@@ -5,7 +5,7 @@ lvim.plugins = {
     "kevinhwang91/nvim-bqf",
     "NvChad/nvim-colorizer.lua",
     "ghillb/cybu.nvim",
-    "j-hui/fidget.nvim",
+    -- "j-hui/fidget.nvim",
     "f-person/git-blame.nvim",
     "ruifm/gitlinker.nvim",
     "christianchiarulli/harpoon",
@@ -99,16 +99,18 @@ lvim.plugins = {
                 -- refer to the configuration section below
             }
         end
+    },
+    {
+        "folke/noice.nvim",
+        requires = {
+            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+            "MunifTanjim/nui.nvim",
+            -- OPTIONAL:
+            --   `nvim-notify` is only needed, if you want to use the notification view.
+            --   If not available, we use `mini` as the fallback
+            "rcarriga/nvim-notify",
+        }
     }
-    -- "MunifTanjim/nui.nvim",
-    -- {
-    --   "folke/noice.nvim",
-    --   event = "VimEnter",
-    --   config = function()
-    --     require("noice").setup()
-    --   end,
-    -- },
-
     -- https://github.com/jose-elias-alvarez/typescript.nvim
     -- "rmagatti/auto-session",
     -- "rmagatti/session-lens"
