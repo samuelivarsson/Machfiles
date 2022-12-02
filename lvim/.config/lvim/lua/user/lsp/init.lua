@@ -12,7 +12,7 @@ lvim.builtin.treesitter.ensure_installed = {
     "python",
 }
 
--- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "jdtls" })
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "jdtls" })
 
 -- local formatters = require "lvim.lsp.null-ls.formatters"
 -- formatters.setup {
