@@ -118,7 +118,7 @@ local config = {
                 runtimes = {
                     {
                         name = "JavaSE-11",
-                        path = "~/.sdkman/candidates/java/11.0.12-open",
+                        path = "~/.sdkman/candidates/java/11.0.2-open",
                     },
                     {
                         name = "JavaSE-17",
