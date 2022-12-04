@@ -6,8 +6,8 @@
 
 lvim.builtin.which_key.mappings["a"] = { "ggVG", "Select All" }
 lvim.builtin.which_key.mappings["j"] = { "<Plug>(leap-forward-to)", "Jump Forward To" }
-lvim.builtin.which_key.mappings["J"] = { "<Plug>(leap-backward-to)", "Jump Backward To" }
-lvim.builtin.which_key.mappings["k"] = { "<Plug>(leap-forward-till)", "Jump Forward Till" }
+lvim.builtin.which_key.mappings["J"] = { "<Plug>(leap-forward-till)", "Jump Forward Till" }
+lvim.builtin.which_key.mappings["k"] = { "<Plug>(leap-backward-to)", "Jump Backward To" }
 lvim.builtin.which_key.mappings["K"] = { "<Plug>(leap-backward-till)", "Jump Backward Till" }
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 lvim.builtin.which_key.mappings["Q"] = { "<cmd>qa<CR>", "Quit LunarVim" }
@@ -153,7 +153,22 @@ lvim.builtin.which_key.mappings["o"] = {
 -- lvim.builtin.which_key.mappings[";"] = nil
 -- lvim.builtin.which_key.mappings["c"] = nil
 -- lvim.builtin.which_key.mappings["L"] = nil
--- lvim.builtin.which_key.mappings["s"] = nil
+lvim.builtin.which_key.mappings["s"] = {
+    C = { "<cmd>Telescope commands<cr>", "Commands" },
+    H = { "<cmd>Telescope highlights<cr>", "Find highlight groups" },
+    M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+    R = { "<cmd>Telescope registers<cr>", "Registers" },
+    b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+    c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+    f = { "<cmd>Telescope find_files<cr>", "Find File" },
+    h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+    k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+    name = "Search",
+    p = { "<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<cr>", "Colorscheme with Preview" },
+    r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+    t = { "<cmd>Telescope live_grep<cr>", "Text" },
+    w = { "<cmd>HopWord<cr>", "HopWord" }
+}
 -- lvim.builtin.which_key.mappings["w"] = nil
 
 local m_opts = {

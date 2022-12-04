@@ -5,7 +5,7 @@ lvim.plugins = {
     "kevinhwang91/nvim-bqf",
     "NvChad/nvim-colorizer.lua",
     "ghillb/cybu.nvim",
-    -- "j-hui/fidget.nvim",
+    "j-hui/fidget.nvim",
     "f-person/git-blame.nvim",
     "ruifm/gitlinker.nvim",
     "christianchiarulli/harpoon",
@@ -110,6 +110,27 @@ lvim.plugins = {
             --   If not available, we use `mini` as the fallback
             "rcarriga/nvim-notify",
         }
+    },
+    {
+        'phaazon/hop.nvim',
+        branch = 'v2', -- optional but strongly recommended
+        config = function()
+            -- you can configure Hop the way you like here; see :h hop-config
+            local hop = require('hop').setup { keys = 'etovxqpdygfblzhckisuran' }
+            local directions = require('hop.hint').HintDirection
+            vim.keymap.set('', 'f', function()
+                hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true })
+            end, { remap = true })
+            vim.keymap.set('', 'F', function()
+                hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true })
+            end, { remap = true })
+            vim.keymap.set('', 't', function()
+                hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })
+            end, { remap = true })
+            vim.keymap.set('', 'T', function()
+                hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })
+            end, { remap = true })
+        end
     }
     -- https://github.com/jose-elias-alvarez/typescript.nvim
     -- "rmagatti/auto-session",

@@ -192,6 +192,9 @@ local config = {
     init_options = {
         -- bundles = {},
         bundles = bundles,
+        extendedClientCapabilities = {
+            progressReportProvider = false,
+        },
     },
 }
 

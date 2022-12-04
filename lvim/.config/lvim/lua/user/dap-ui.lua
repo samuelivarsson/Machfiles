@@ -35,4 +35,4 @@ config.floating = {
     },
 }
 
-dap_ui.setup(config)
+lvim.builtin.dap.ui.config = config
