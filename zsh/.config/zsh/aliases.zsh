@@ -60,6 +60,8 @@ case "$(uname -s)" in
 Darwin)
 	# echo 'Mac OS X'
 	alias ls='ls -G'
+	alias sk="cd ~/Min\ enhet/Skola"
+	alias y5="cd ~/Min\ enhet/Skola/Year5"
 	;;
 
 Linux)

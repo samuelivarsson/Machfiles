@@ -18,3 +18,20 @@ export XDG_CURRENT_DESKTOP="Wayland"
 # eval "$(fnm env)"
 # eval "$(zoxide init zsh)"
 # eval "`pip completion --zsh`"
+
+case "$(uname -s)" in
+
+Darwin)
+	# echo 'Mac OS X'
+	export SKOLA="$HOME/Min enhet/Skola"
+	;;
+
+Linux) ;;
+
+CYGWIN* | MINGW32* | MSYS* | MINGW*)
+	# echo 'MS Windows'
+	;;
+*)
+	# echo 'Other OS'
+	;;
+esac
