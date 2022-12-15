@@ -86,7 +86,7 @@ lvim.plugins = {
 				method = "getCompletionsCycling",
 				formatters = {
 					label = require("copilot_cmp.format").format_label_text,
-					insert_text = require("copilot_cmp.format").format_insert_text,
+					insert_text = require("copilot_cmp.format").remove_existing,
 					preview = require("copilot_cmp.format").deindent,
 				},
 			})
@@ -120,19 +120,19 @@ lvim.plugins = {
 		config = function()
 			-- you can configure Hop the way you like here; see :h hop-config
 			local hop = require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
-			local directions = require("hop.hint").HintDirection
-			vim.keymap.set("", "f", function()
-				hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true })
-			end, { remap = true })
-			vim.keymap.set("", "F", function()
-				hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true })
-			end, { remap = true })
-			vim.keymap.set("", "t", function()
-				hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })
-			end, { remap = true })
-			vim.keymap.set("", "T", function()
-				hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })
-			end, { remap = true })
+			-- local directions = require("hop.hint").HintDirection
+			-- vim.keymap.set("", "f", function()
+			-- 	hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true })
+			-- end, { remap = true })
+			-- vim.keymap.set("", "F", function()
+			-- 	hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true })
+			-- end, { remap = true })
+			-- vim.keymap.set("", "t", function()
+			-- 	hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })
+			-- end, { remap = true })
+			-- vim.keymap.set("", "T", function()
+			-- 	hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })
+			-- end, { remap = true })
 		end,
 	},
 	-- https://github.com/jose-elias-alvarez/typescript.nvim

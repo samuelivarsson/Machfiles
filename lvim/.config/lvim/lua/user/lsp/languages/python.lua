@@ -7,7 +7,11 @@ formatters.setup({
 -- Set a linter.
 local linters = require("lvim.lsp.null-ls.linters")
 linters.setup({
-	{ command = "flake8", extra_args = { "--max-line-length", "88" }, filetypes = { "python" } },
+	{
+		command = "flake8",
+		extra_args = { "--max-line-length", "88", "--extend-ignore", "E203" },
+		filetypes = { "python" },
+	},
 })
 
 -- Setup dap for python

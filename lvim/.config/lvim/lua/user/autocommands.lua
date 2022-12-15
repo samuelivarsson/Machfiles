@@ -157,10 +157,13 @@ vim.api.nvim_create_autocmd({ "CursorHold" }, {
 local api = require("nvim-tree.api")
 local Event = api.events.Event
 api.events.subscribe(Event.TreeClose, function()
-	if require("dap").session() then
-		require("dapui").open({ reset = true })
-		vim.notify("Hejsan!", "INFO")
-	end
+	-- if require("dap").session() then
+	-- 	require("dapui").open({ reset = true })
+	-- 	vim.notify("Hejsan!", "INFO")
+	-- end
+	local dapui = require("dapui")
+	dapui.toggle()
+	dapui.toggle({ reset = true })
 end)
 
 -- vim.api.nvim_create_autocmd({ "ModeChanged" }, {

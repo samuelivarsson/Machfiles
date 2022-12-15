@@ -11,6 +11,7 @@ keymap("n", "<C-i>", "<C-i>", opts)
 
 keymap("n", "<C-s>", ":w<CR>", opts)
 keymap("i", "<C-s>", "<esc>:w<CR>", opts)
+keymap("x", "<C-s>", "<esc>:w<CR>", opts)
 -- keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
 -- keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
 

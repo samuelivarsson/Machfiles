@@ -2,23 +2,23 @@ local config = lvim.builtin.dap.ui.config
 config.layouts = {
 	{
 		elements = {
-			{ id = "repl", size = 0.20 },
+			{ id = "repl", size = 0.3 },
 			-- { id = "console", size = 0.59 },
-			{ id = "scopes", size = 0.20 },
+			{ id = "scopes", size = 0.25 },
 			{ id = "breakpoints", size = 0.15 },
-			{ id = "stacks", size = 0.3 },
+			{ id = "stacks", size = 0.15 },
 			{ id = "watches", size = 0.15 },
 		},
 		size = 0.20,
 		position = "left",
 	},
-	-- {
-	-- 	elements = {
-	-- 		{ id = "repl", size = 1 },
-	-- 	},
-	-- 	size = 0.01,
-	-- 	position = "bottom",
-	-- },
+	{
+		elements = {
+			{ id = "console", size = 1 },
+		},
+		size = 0.30,
+		position = "right",
+	},
 }
 config.floating = {
 	max_height = 0.9,
