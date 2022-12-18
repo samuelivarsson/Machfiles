@@ -30,7 +30,7 @@ config.floating = {
 }
 
 lvim.builtin.dap.ui.config = config
-lvim.builtin.dap.ui.auto_open = false
+lvim.builtin.dap.ui.auto_open = true
 -- vim.notify("HEEEEJ", "INFO")
 local dap = require("dap")
 dap.defaults.fallback.external_terminal = {
