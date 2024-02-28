@@ -1,0 +1,26 @@
+customCommands:
+  - key: 'u'
+    context: 'files'
+    command: 'git reset HEAD^'
+    description: 'Uncommit'
+    prompts:
+    - type: 'confirm'
+      title: 'Uncommit last commit'
+      body: 'Are you sure you want to uncommit the most recent commit?'
+
+# git:
+#   paging:
+    # colorArg: always
+    # pager: delta --dark --paging=never --syntax-theme base16-256 -s
+    # colorArg: never
+    # pager: ydiff -p cat -s --wrap --width={{columnWidth}}
+  # commitPrefixes:
+  #   gung-core-frontend: # This is repository folder name
+  #     # pattern: "^\\w+(-\\w+).*"
+  #     pattern: "^.*"
+  #     replace: "HomeOfTextile: "
+      
+# gui:
+#   sidePanelWidth: 0.25 # gives you more space to show things side-by-side
+
+

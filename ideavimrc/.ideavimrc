@@ -1,0 +1,217 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=8 sidescrolloff=10  " keep some lines before and after the cursor visible
+set clipboard=unnamedplus,unnamed,ideaput " integrate with system clipboard
+set hlsearch                      " highlight search occurrences
+
+" set <leader> to <space>
+let mapleader = " "
+
+" Do incremental searching.
+set incsearch
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" make Y behave like D and C, yanking till end of line
+map Y y$
+
+" don't lose selection when indenting
+vnoremap < <gv
+vnoremap > >gv
+vnoremap = =gv
+
+" vmap p "_dP
+" vnoremap p "0p
+" vnoremap P "0P
+" vnoremap y "0y
+" vnoremap d "0d
+vnoremap p :<C-U>let @p = @+<CR>gvp:let @+ = @p<CR>
+
+" Better windows navigation
+nmap <C-h> <C-W>h
+nmap <C-j> <C-W>j
+nmap <C-k> <C-W>k
+nmap <C-l> <C-W>l
+
+nmap <S-H> :action PreviousTab<CR>
+nmap <S-L> :action NextTab<CR>
+
+nmap <C-p> :action ParameterInfo<CR>
+imap <C-p> <C-o>:action ParameterInfo<CR>
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+
+" Easymotion
+Plug 'easymotion/vim-easymotion'
+map <Leader> <Plug>(easymotion-prefix)
+
+" Surround plugin
+Plug 'tpope/vim-surround'
+nmap s <Plug>YSurround
+xmap s <Plug>VSurround
+
+" Multicursor
+set multicursor
+
+" Sneak
+" set sneak
+
+" NERDTree
+set NERDTree
+let g:NERDTreeMapJumpParent="h"
+let g:NERDTreeMapJumpRoot="H"
+let g:NERDTreeMapActivateNode="l"
+let g:NERDTreeMapPreview="L"
+let g:NERDTreeMapOpenVSplit="v"
+let g:NERDTreeMapPreviewVSplit="V"
+
+"  --------------------------- Which key ---------------------------
+set which-key
+set notimeout
+let g:WhichKey_DefaultDelay = 600
+
+" Debug
+let g:WhichKeyDesc_debug = "<leader>d +Debug"
+
+map <leader>ds <Action>(Debug)
+let g:WhichKeyDesc_debug_start = "<leader>ds Start Debugger"
+
+map <leader>db <Action>(ToggleLineBreakpoint)
+let g:WhichKeyDesc_debug_bp = "<leader>db Toggle Breakpoint"
+
+map <leader>dx <Action>(Stop)
+let g:WhichKeyDesc_debug_stop = "<leader>dx Stop Debugger"
+
+" Git
+let g:WhichKeyDesc_git = "<leader>g +Git"
+
+nmap <leader>gr :action Vcs.RollbackChangedLines<CR>
+let g:WhichKeyDesc_git_rollback = "<leader>gr Roll Back Changed Lines"
+
+nmap <leader>gh :action Vcs.ShowTabbedFileHistory<CR>
+let g:WhichKeyDesc_git_history = "<leader>gh Show History"
+
+nmap <leader>gb :action Annotate<CR>
+let g:WhichKeyDesc_git_blame = "<leader>gb Annotate with Git blame"
+
+" Refactor
+let g:WhichKeyDesc_Code = "<leader>C +Code"
+
+nmap <leader>Ci :action Inline<CR>
+nmap <leader>Cr :action RenameElement<CR>
+nmap <leader>Cm :action Move<CR>
+nmap <leader>Co :action OptimizeImports<CR>
+nmap <leader>CG :action Generate<CR>
+
+let g:WhichKeyDesc_refactor_expression = "<leader>Ce +Expression"
+nmap <leader>Cev :action IntroduceVariable<CR>
+vmap <leader>Cev :action IntroduceVariable<CR>
+nmap <leader>Cem :action ExtractMethod<CR>
+vmap <leader>Cem :action ExtractMethod<CR>
+
+" IdeaVim
+let g:WhichKeyDesc_ideavim = "<leader>i +IdeaVim"
+
+nnoremap <leader>ic :e ~/Machfiles/ideavimrc/.ideavimrc<CR>
+let g:WhichKeyDesc_ideavim_config = "<leader>ic Config"
+
+nnoremap <leader>ir :source ~/.ideavimrc<CR>
+let g:WhichKeyDesc_ideavim_reload = "<leader>ir Reload"
+
+" Find
+let g:WhichKeyDesc_find = "<leader>f +Find"
+
+nnoremap <leader>ft :action Find<CR>
+let g:WhichKeyDesc_find_text = "<leader>ft Find Text"
+
+nnoremap <leader>fT :action FindInPath<CR>
+let g:WhichKeyDesc_find_text_in_project = "<leader>fT Find Text In Project"
+
+nnoremap <leader>ff :action GotoFile<CR>
+let g:WhichKeyDesc_find_file = "<leader>ff Find File"
+
+nnoremap <leader>fc :action GotoClass<cr>
+let g:WhichKeyDesc_find_class = "<leader>fc Find Class"
+
+nnoremap <leader>fr :action RecentChangedFiles<cr>
+let g:WhichKeyDesc_recent_locations = "<leader>fr Recent Files"
+
+" Replace
+let g:WhichKeyDesc_replace = "<leader>r +Replace"
+
+nnoremap <leader>rt :action Replace<CR>
+let g:WhichKeyDesc_replace_text = "<leader>rt Replace Text"
+
+nnoremap <leader>rT :action ReplaceInPath<CR>
+let g:WhichKeyDesc_replace_text_in_project = "<leader>rT Replace Text In Project"
+
+" Singles
+map <leader>/ :nohl<CR>
+let g:WhichKeyDesc_clear_highlighting = "<leader>/ Clear Highlighting"
+
+nnoremap <leader>a ggVG
+let g:WhichKeyDesc_select_all = "<leader>a Select All"
+
+nnoremap <leader>c :action CloseEditor<CR>
+let g:WhichKeyDesc_close_editor = "<leader>c Close Editor"
+
+nnoremap <leader>v :action MoveTabRight<CR>
+let g:WhichKeyDesc_split_vertically = "<leader>v Split Vertically"
+
+nnoremap <leader>h :action MoveTabDown<CR>
+let g:WhichKeyDesc_split_horizontally = "<leader>h Split Horizontally"
+
+nmap <leader>n :action GotoNextError<CR>
+let g:WhichKeyDesc_go_to_next_error = "<leader>n Go To Next Error"
+
+nnoremap <leader>z :action ToggleDistractionFreeMode<CR>
+let g:WhichKeyDesc_toggle_zen_mode = "<leader>z Toggle Zen Mode"
+
+nnoremap <leader>e :NERDTreeToggle<CR>
+let g:WhichKeyDesc_toggle_nerd_tree = "<leader>e Toggle NERDTree"
+
+nnoremap <D-S-E> :NERDTreeFocus<CR>
+
+" No leaders
+nmap gr :action ShowUsages<CR>
+let g:WhichKeyDesc_show_usages = "gr Show Usages"
+
+nmap gi :action GotoImplementation<CR>
+let g:WhichKeyDesc_go_to_implementation = "gi Go To Implementation"
+
+nmap gs :action GotoSuperMethod<CR>
+let g:WhichKeyDesc_go_to_super_method = "gs Go To Super Method"
+
+map gh :action ShowErrorDescription<CR>
+let g:WhichKeyDesc_show_error_description = "gh Show Error Description"
+
+map gH :action QuickJavaDoc<CR>
+let g:WhichKeyDesc_show_hover = "gH Show Hover"
+
+map gd :action GotoDeclaration<CR>
+let g:WhichKeyDesc_go_to_definition = "gd Go To Definition"
+
+map gb :action Back<CR>
+let g:WhichKeyDesc_go_back = "gb Go Back"
+
+map gf :action Forward<CR>
+let g:WhichKeyDesc_go_forward = "gf Go Forward"
+
+map gn :action GotoNextError<CR>
+let g:WhichKeyDesc_go_to_related_problems = "gn Go To Next Error"
+
+
