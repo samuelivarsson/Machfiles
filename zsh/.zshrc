@@ -45,6 +45,7 @@ Darwin)
     export NVM_DIR=~/.nvm
     source $(brew --prefix nvm)/nvm.sh
     plug "$HOME/.config/zsh/vpn-aliases.zsh"
+    plug "$HOME/.config/zsh/secret-exports.zsh"
 	;;
 
 Linux)

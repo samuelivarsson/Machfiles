@@ -6,3 +6,4 @@ nvim/.config/nvim/plugin/packer_compiled.lua
 lvim/.config/lvim/lazy-lock.json
 nvim/.config/nvim/lazy-lock.json
 zsh/.config/zsh/vpn-aliases.zsh
+zsh/.config/zsh/secret-exports.zsh
