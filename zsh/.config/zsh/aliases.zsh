@@ -69,6 +69,12 @@ Darwin)
     alias ghf='cd ~/gung_home/gung-core-frontend'
     alias ghb='cd ~/gung_home/gung-cust'
     alias ghc='cd ~/gung_home/gung-core'
+    
+    alias ba='npm run build-libs-all'
+    alias bbc='npm run build-libs-bc'
+    alias bg='npm run build-libs-garp'
+    alias bj='npm run build-libs-jeeves'
+    alias bf='npm run build-libs-fortnox'
 	;;
 
 Linux)
