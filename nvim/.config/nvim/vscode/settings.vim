@@ -35,6 +35,7 @@ nmap gcc <Plug>VSCodeCommentaryLine
 
 " Navigation
 nmap <silent> gb :call VSCodeNotify('workbench.action.navigateBack')<CR>
+nmap <silent> gf :call VSCodeNotify('workbench.action.navigateForward')<CR>
 
 " Find
 nnoremap ? <Cmd>call VSCodeNotify('workbench.action.findInFiles', { 'query': expand('<cword>')})<CR>
