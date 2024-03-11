@@ -1,6 +1,6 @@
 #!/bin/sh
 alias j='z'
-alias f='zi'
+alias c='clear'
 alias g='lazygit'
 alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git' ';' -print0 | xargs -I {} -0 git -C {} pull -q"
 alias nvimrc='nvim ~/.config/nvim/'
@@ -48,8 +48,13 @@ alias mach_list_systemctl="systemctl list-unit-files --state=enabled"
 
 alias mach_java_mode="export SDKMAN_DIR="$HOME/.sdkman" && [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh""
 
+# Git
 alias m="git checkout master"
 alias s="git checkout stable"
+alias gs='git status'
+alias gf='git fetch'
+alias gp='git pull'
+alias gP='git push'
 
 if [[ $TERM == "xterm-kitty" ]]; then
 	alias ssh="kitty +kitten ssh"
@@ -65,10 +70,11 @@ Darwin)
     alias chrome="/Applications/Google\\ \\Chrome.app/Contents/MacOS/Google\\ \\Chrome"
 
     # Gung
-    alias gh='cd ~/gung_home'
-    alias ghf='cd ~/gung_home/gung-core-frontend'
-    alias ghb='cd ~/gung_home/gung-cust'
-    alias ghc='cd ~/gung_home/gung-core'
+    alias gh='cd $GUNG_HOME'
+    alias ghf='cd $GUNG_HOME/gung-core-frontend'
+    alias ghb='cd $GUNG_HOME/gung-cust'
+    alias ghc='cd $GUNG_HOME/gung-core'
+    alias ghp='cd $GUNG_HOME/gung-pim'
     
     alias ba='npm run build-libs-all'
     alias bbc='npm run build-libs-bc'
