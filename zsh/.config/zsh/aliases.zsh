@@ -75,6 +75,7 @@ Darwin)
     alias ghb='cd $GUNG_HOME/gung-cust'
     alias ghc='cd $GUNG_HOME/gung-core'
     alias ghp='cd $GUNG_HOME/gung-pim'
+    alias ghl='cd $GUNG_HOME/gung-lambda'
     
     alias ba='npm run build-libs-all'
     alias bbc='npm run build-libs-bc'
