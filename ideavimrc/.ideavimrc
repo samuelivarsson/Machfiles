@@ -108,6 +108,10 @@ let g:WhichKeyDesc_git_history = "<leader>gh Show History"
 nmap <leader>gb :action Annotate<CR>
 let g:WhichKeyDesc_git_blame = "<leader>gb Annotate with Git blame"
 
+nmap <leader>gc :action copilot.chat.show<CR>
+let g:WhichKeyDesc_git_copilot = "<leader>gc Open Copilot chat"
+
+
 " Refactor
 let g:WhichKeyDesc_Code = "<leader>C +Code"
 
@@ -151,10 +155,10 @@ nnoremap <leader>fr :action RecentChangedFiles<cr>
 let g:WhichKeyDesc_recent_locations = "<leader>fr Recent Files"
 
 " Replace
-let g:WhichKeyDesc_replace = "<leader>r +Replace"
+let g:WhichKeyDesc_replace = "<leader>r +Refactor"
 
-nnoremap <leader>rt :action Replace<CR>
-let g:WhichKeyDesc_replace_text = "<leader>rt Replace Text"
+nnoremap <leader>rs :action RenameElement<CR>
+let g:WhichKeyDesc_rename_symbol = "<leader>rs Rename Symbol"
 
 nnoremap <leader>rT :action ReplaceInPath<CR>
 let g:WhichKeyDesc_replace_text_in_project = "<leader>rT Replace Text In Project"
