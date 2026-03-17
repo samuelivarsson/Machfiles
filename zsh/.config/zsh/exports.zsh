@@ -6,6 +6,7 @@ export EDITOR="nvim"
 export TERMINAL="kitty"
 export BROWSER="google-chrome"
 export PATH="$HOME/.local/bin":$PATH
+export PATH="$HOME/.local/share/bob/nvim-bin":$PATH
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999
 export PATH=$HOME/.cargo/bin:$PATH
