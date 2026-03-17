@@ -76,12 +76,19 @@ Darwin)
     alias ghc='cd $GUNG_HOME/gung-core'
     alias ghp='cd $GUNG_HOME/gung-pim'
     alias ghl='cd $GUNG_HOME/gung-lambda'
+    alias ghbin='cd $GUNG_HOME/gung-bin'
+    alias ghcli='cd $GUNG_HOME/gung-cli'
+    alias gha='cd $GUNG_HOME/gung-ansible-backend'
     
     alias ba='npm run build-libs-all'
     alias bbc='npm run build-libs-bc'
     alias bg='npm run build-libs-garp'
     alias bj='npm run build-libs-jeeves'
     alias bf='npm run build-libs-fortnox'
+
+    function gbc() {
+        gung build --clean "$@" | lolcat
+    }
 	;;
 
 Linux)
