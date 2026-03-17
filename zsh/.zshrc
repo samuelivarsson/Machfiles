@@ -24,7 +24,10 @@ autoload -Uz compinit
 compinit
 
 # keybinds
-bindkey '^ ' autosuggest-accept
+bindkey '^L' autosuggest-accept
+
+# Gung
+export SPRING_PROFILES_ACTIVE=dev
 
 # if
 # 	command -v bat &
@@ -61,3 +64,7 @@ CYGWIN* | MINGW32* | MSYS* | MINGW*)
 	# echo 'Other OS'
 	;;
 esac
+fpath=(~/.zsh/completions $fpath)
+autoload -U compinit && compinit
+fpath=(~/.zsh/completions $fpath)
+autoload -U compinit && compinit
