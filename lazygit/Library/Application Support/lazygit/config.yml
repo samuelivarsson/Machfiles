@@ -7,6 +7,9 @@ customCommands:
     - type: 'confirm'
       title: 'Uncommit last commit'
       body: 'Are you sure you want to uncommit the most recent commit?'
+refresher:
+    refreshInterval: 100 # file/submodule refresh interval in seconds
+    fetchInterval: 600 # re-fetch interval in seconds
 
 # git:
 #   paging:
