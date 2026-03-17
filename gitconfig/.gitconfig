@@ -1,0 +1,24 @@
+[user]
+	email = samuel.ivarsson@gung.se
+	name = Samuel Ivarsson
+[pull]
+	rebase = true
+[core]
+    editor = code --wait
+; [diff]
+;     tool = vscode
+; [difftool "vscode"]
+;     cmd = code --wait --diff $LOCAL $REMOTE
+; [merge]
+;     tool = vscode
+; [mergetool "vscode"]
+;     cmd = code --wait $MERGED
+[merge]
+    tool = intellij
+[difftool "intellij"]
+        cmd = ${HOME}/Applications/IntelliJ\\ IDEA\\ Ultimate\\ 2025.1.3.app/Contents/MacOS/idea diff $(cd $(dirname \"$LOCAL\") && pwd)/$(basename \"$LOCAL\") $(cd $(dirname \"$REMOTE\") && pwd)/$(basename \"$REMOTE\")
+[mergetool "intellij"]
+        cmd = ${HOME}/Applications/IntelliJ\\ IDEA\\ Ultimate\\ 2025.1.3.app/Contents/MacOS/idea merge $(cd $(dirname \"$LOCAL\") && pwd)/$(basename \"$LOCAL\") $(cd $(dirname \"$REMOTE\") && pwd)/$(basename \"$REMOTE\") $(cd $(dirname \"$BASE\") && pwd)/$(basename \"$BASE\") $(cd $(dirname \"$MERGED\") && pwd)/$(basename \"$MERGED\")
+        trustExitCode = true
+[rebase]
+	autoStash = true
