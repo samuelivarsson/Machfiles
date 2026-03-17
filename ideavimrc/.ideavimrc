@@ -79,6 +79,21 @@ let g:NERDTreeMapPreview="L"
 let g:NERDTreeMapOpenVSplit="v"
 let g:NERDTreeMapPreviewVSplit="V"
 
+" Macros
+"let @w = "siw]si['hhx"
+
+" Multiple cursors
+Plug 'terryma/vim-multiple-cursors'
+nmap <C-n> <Plug>NextWholeOccurrence
+xmap <C-n> <Plug>NextWholeOccurrence
+nmap g<C-n> <Plug>NextOccurrence
+xmap g<C-n> <Plug>NextOccurrence
+xmap <C-x> <Plug>SkipOccurrence
+xmap <C-p> <Plug>RemoveOccurrence
+
+" Matchit
+Plug 'chrisbra/matchit'
+
 "  --------------------------- Which key ---------------------------
 set which-key
 set notimeout
@@ -96,19 +111,28 @@ let g:WhichKeyDesc_debug_bp = "<leader>db Toggle Breakpoint"
 map <leader>dx <Action>(Stop)
 let g:WhichKeyDesc_debug_stop = "<leader>dx Stop Debugger"
 
+map <leader>di <Action>(StepInto)
+let g:WhichKeyDesc_debug_step_into = "<leader>di Step Into"
+
+map <leader>do <Action>(StepOver)
+let g:WhichKeyDesc_debug_step_over = "<leader>do Step Over"
+
+map <leader>dO <Action>(StepOut)
+let g:WhichKeyDesc_debug_step_out = "<leader>dO Step Out"
+
 " Git
 let g:WhichKeyDesc_git = "<leader>g +Git"
 
-nmap <leader>gr :action Vcs.RollbackChangedLines<CR>
+map <leader>gr :action Vcs.RollbackChangedLines<CR>
 let g:WhichKeyDesc_git_rollback = "<leader>gr Roll Back Changed Lines"
 
-nmap <leader>gh :action Vcs.ShowTabbedFileHistory<CR>
+map <leader>gh :action Vcs.ShowTabbedFileHistory<CR>
 let g:WhichKeyDesc_git_history = "<leader>gh Show History"
 
-nmap <leader>gb :action Annotate<CR>
+map <leader>gb :action Annotate<CR>
 let g:WhichKeyDesc_git_blame = "<leader>gb Annotate with Git blame"
 
-nmap <leader>gc :action copilot.chat.show<CR>
+map <leader>gc :action copilot.chat.show<CR>
 let g:WhichKeyDesc_git_copilot = "<leader>gc Open Copilot chat"
 
 
@@ -167,6 +191,9 @@ let g:WhichKeyDesc_replace_text_in_project = "<leader>rT Replace Text In Project
 map <leader>/ :nohl<CR>
 let g:WhichKeyDesc_clear_highlighting = "<leader>/ Clear Highlighting"
 
+nnoremap <leader>N :action ClearAllNotifications<CR>
+let g:WhichKeyDesc_clear_all_notifications_1 = "<leader>N Clear All Notifications"
+
 nnoremap <leader>a ggVG
 let g:WhichKeyDesc_select_all = "<leader>a Select All"
 
@@ -190,12 +217,21 @@ let g:WhichKeyDesc_toggle_nerd_tree = "<leader>e Toggle NERDTree"
 
 nnoremap <D-S-E> :NERDTreeFocus<CR>
 
+nnoremap <leader>p :action ManageRecentProjects<CR>
+let g:WhichKeyDesc_recent_projects = "<leader>p Recent Projects"
+
 " No leaders
 nmap gr :action ShowUsages<CR>
 let g:WhichKeyDesc_show_usages = "gr Show Usages"
 
+nmap gR :action SplitVertically<CR> :action ShowUsages<CR>
+let g:WhichKeyDesc_show_usages_right = "gR Show Usages Right"
+
 nmap gi :action GotoImplementation<CR>
 let g:WhichKeyDesc_go_to_implementation = "gi Go To Implementation"
+
+nmap gI :action SplitVertically<CR> :action GotoImplementation<CR>
+let g:WhichKeyDesc_go_to_implementation_right = "gI Go To Implementation Right"
 
 nmap gs :action GotoSuperMethod<CR>
 let g:WhichKeyDesc_go_to_super_method = "gs Go To Super Method"
@@ -208,6 +244,9 @@ let g:WhichKeyDesc_show_hover = "gH Show Hover"
 
 map gd :action GotoDeclaration<CR>
 let g:WhichKeyDesc_go_to_definition = "gd Go To Definition"
+
+map gD :action SplitVertically<CR> :action GotoDeclaration<CR>
+let g:WhichKeyDesc_go_to_definition_right = "gD Go To Definition Right"
 
 map gb :action Back<CR>
 let g:WhichKeyDesc_go_back = "gb Go Back"
