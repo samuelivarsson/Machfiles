@@ -1,0 +1,15 @@
+# Yazi main config. Only overrides - everything else comes from yazi's presets.
+
+[opener]
+# GUI opener for IntelliJ IDEA (JetBrains Toolbox launcher in ~/.local/bin/idea).
+# orphan = true so yazi doesn't wait around for the IDE to exit.
+intellij = [
+	{ run = 'idea %s', desc = "IntelliJ IDEA", orphan = true, for = "macos" },
+]
+
+[open]
+# Markdown: default (o / Enter) stays $EDITOR = neovim, IntelliJ is offered as
+# an extra choice via interactive open (O / Shift-Enter).
+prepend_rules = [
+	{ url = "*.{md,markdown,MD,Markdown}", use = [ "edit", "intellij", "open", "reveal" ] },
+]
