@@ -69,6 +69,9 @@ Darwin)
     alias dls='cd ~/Downloads'
     alias chrome="/Applications/Google\\ \\Chrome.app/Contents/MacOS/Google\\ \\Chrome"
 
+    # Anti-prank booby trap: mouse movement or wrong key snaps a webcam photo, sets it as lock screen and locks (secret sequence disarms)
+    alias lockguard='swift $HOME/.config/zsh/lockguard.swift'
+
     # Gung
     alias gh='cd $GUNG_HOME'
     alias ghf='cd $GUNG_HOME/gung-core-frontend'
