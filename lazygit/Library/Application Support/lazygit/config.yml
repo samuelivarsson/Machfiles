@@ -10,7 +10,9 @@ customCommands:
 refresher:
     refreshInterval: 100 # file/submodule refresh interval in seconds
     fetchInterval: 600 # re-fetch interval in seconds
-
+git:
+  # If true, do not allow force pushes
+  disableForcePushing: true 
 # git:
 #   paging:
     # colorArg: always
