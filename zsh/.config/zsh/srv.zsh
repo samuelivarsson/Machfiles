@@ -1,6 +1,7 @@
 # srv: pick a Gung server or customer app from the ansible inventory with fzf and act on it.
-# Search mode: type to filter, ctrl-j/k to move, enter = ssh, ctrl-t/l/s = tail/less/status.
-# Esc switches to command mode, where plain t/l/s/j/k work; / goes back to search, q/esc quits.
+# Search mode: type to filter, ctrl-j/k to move, alt-enter = ssh, ctrl-t/l/s = tail/less/status.
+# Enter or esc switches to command mode: enter = ssh, plain t/l/s/j/k work, / goes back to search,
+# q/esc quits. (fzf cannot bind ctrl-enter, so direct ssh from search mode is alt-enter.)
 
 GUNG_ANSIBLE_DIR="${GUNG_ANSIBLE_DIR:-$HOME/gung_home/gung-ansible-backend}"
 
@@ -23,17 +24,20 @@ _srv_list() {
 }
 
 srv() {
-  local search_footer='enter ssh · ctrl-t tail · ctrl-l less · ctrl-s status · esc kommandoläge'
-  local cmd_footer='t tail · l less · s status · enter ssh · j/k flytta · / sök · q avsluta'
+  local search_footer='enter/esc kommandoläge · alt-enter ssh · ctrl-t tail · ctrl-l less · ctrl-s status'
+  local cmd_footer='enter ssh · t tail · l less · s status · j/k flytta · / sök · q avsluta'
   local keys='j,k,t,l,s,q,/'
+  local to_cmd="change-prompt(kommando> )+rebind($keys)+change-footer($cmd_footer)"
+  local in_search="[[ \$FZF_PROMPT == 'sök> ' ]]"
   local out
   out=$(_srv_list | fzf --delimiter=$'\t' --with-nth=3 --tiebreak=begin,length \
     --prompt='sök> ' --height=60% --reverse --footer="$search_footer" \
     --bind "start:unbind($keys)" \
-    --bind "esc:transform:[[ \$FZF_PROMPT == 'sök> ' ]] && echo 'change-prompt(kommando> )+rebind($keys)+change-footer($cmd_footer)' || echo abort" \
+    --bind "esc:transform:$in_search && echo '$to_cmd' || echo abort" \
+    --bind "enter:transform:$in_search && echo '$to_cmd' || echo 'print(ssh)+accept'" \
     --bind "/:change-prompt(sök> )+unbind($keys)+change-footer($search_footer)" \
     --bind 'ctrl-j:down,ctrl-k:up,j:down,k:up,q:abort' \
-    --bind 'enter:print(ssh)+accept' \
+    --bind 'alt-enter:print(ssh)+accept' \
     --bind 'ctrl-t:print(tail)+accept,t:print(tail)+accept' \
     --bind 'ctrl-l:print(less)+accept,l:print(less)+accept' \
     --bind 'ctrl-s:print(status)+accept,s:print(status)+accept') || return
