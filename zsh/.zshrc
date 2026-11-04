@@ -124,3 +124,6 @@ fpath=(~/.zsh/completions $fpath)
 autoload -U compinit && compinit
 fpath=(~/.zsh/completions $fpath)
 autoload -U compinit && compinit
+
+# Added by Antigravity
+export PATH="/Users/samuelivarsson/.antigravity/antigravity/bin:$PATH"
