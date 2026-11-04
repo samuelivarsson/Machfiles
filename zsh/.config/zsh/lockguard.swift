@@ -51,9 +51,16 @@ final class IntruderCamera: NSObject, AVCapturePhotoCaptureDelegate {
     private let session = AVCaptureSession()
     private let output = AVCapturePhotoOutput()
     private var completion: ((URL?) -> Void)?
+    private var savedStderr: Int32 = -1
 
     func snap(completion: @escaping (URL?) -> Void) {
         self.completion = completion
+        // AVFoundation on macOS 26 prints a harmless objc "NSKVONotifying_AVCapturePhotoOutput
+        // not linked into application" warning; keep it off the terminal while the camera runs.
+        savedStderr = dup(STDERR_FILENO)
+        let devNull = open("/dev/null", O_WRONLY)
+        dup2(devNull, STDERR_FILENO)
+        close(devNull)
         let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .unspecified)
             ?? AVCaptureDevice.default(for: .video)
         guard AVCaptureDevice.authorizationStatus(for: .video) == .authorized,
@@ -87,6 +94,11 @@ final class IntruderCamera: NSObject, AVCapturePhotoCaptureDelegate {
     }
 
     private func finish(_ url: URL?) {
+        if savedStderr >= 0 {
+            dup2(savedStderr, STDERR_FILENO)
+            close(savedStderr)
+            savedStderr = -1
+        }
         DispatchQueue.global().async { self.session.stopRunning() }
         DispatchQueue.main.async {
             self.completion?(url)
