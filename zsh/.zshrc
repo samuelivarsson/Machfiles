@@ -24,6 +24,9 @@ plug "zsh-users/zsh-syntax-highlighting"
 autoload -Uz compinit
 compinit
 
+# zoxide (after compinit so completions register)
+eval "$(zoxide init zsh)"
+
 # keybinds
 bindkey '^L' autosuggest-accept
 
