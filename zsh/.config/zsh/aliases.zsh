@@ -105,3 +105,26 @@ CYGWIN* | MINGW32* | MSYS* | MINGW*)
 	# echo 'Other OS'
 	;;
 esac
+
+# Local server for gung-ansible-backend HTML tools (replaces IntelliJ's :63342).
+# memdash -> memory dashboard; memdash migration-planner -> utils/migration-planner.html
+# The server is detached (keeps running after the terminal closes); memdash status / memdash stop.
+memdash() {
+  local root="$HOME/gung_home/gung-ansible-backend" port=8642
+  local pids=$(lsof -nP -tiTCP:$port -sTCP:LISTEN 2>/dev/null)
+  if [[ $1 == status ]]; then
+    if [[ -n $pids ]]; then echo "memdash: running on http://localhost:$port (pid ${pids//$'\n'/ }, up $(ps -o etime= -p ${pids%%$'\n'*} | tr -d ' '))"
+    else echo "memdash: not running"; fi
+    return
+  fi
+  if [[ $1 == stop ]]; then
+    if [[ -n $pids ]]; then kill ${=pids} && echo "memdash: stopped server on :$port"
+    else echo "memdash: no server on :$port"; fi
+    return
+  fi
+  if [[ -z $pids ]]; then
+    (cd "$root" && nohup /usr/bin/python3 -m http.server $port --bind 127.0.0.1 >/tmp/memdash.log 2>&1 &)
+    sleep 0.5
+  fi
+  cmux open "http://localhost:$port/utils/${1:-memory-dashboard}.html"
+}
