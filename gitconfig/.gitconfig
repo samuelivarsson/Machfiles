@@ -22,3 +22,5 @@
         trustExitCode = true
 [rebase]
 	autoStash = true
+[url "git@ssh.bitbucket.org:"]
+	insteadOf = git@bitbucket.org:
